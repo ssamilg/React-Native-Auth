@@ -1,0 +1,22 @@
+
+#jwt_token
+jwt_token/node_modules/**/*
+!jwt_token/node_modules/expo/AppEntiry.js
+jwt_token/.expo/*
+jwt_token/.expo-shared/*
+jwt_token/npm-debug.*
+jwt_token/*.jks
+jwt_token/*.p8
+jwt_token/*.p12
+jwt_token/*.key
+jwt_token/*.mobileprovision
+jwt_token/*.orig.*
+jwt_token/web-build/
+jwt_token/web-report/
+
+# macOS
+jwt_token/.DS_Store
+
+#api_auth
+api_auth/node_modules/**/*
+api_auth/.env
