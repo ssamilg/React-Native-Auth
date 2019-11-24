@@ -9,6 +9,7 @@ class Registration extends Component {
   constructor(props){
     super(props);
     this.state = {
+      name:'',
       email: '',
       password: '',
       password_confirmation: '',
@@ -26,7 +27,7 @@ class Registration extends Component {
 
     axios.post("http://192.168.1.104:3000/api/user/register",{
       
-        name:'ibrahim',
+        name:name,
         email: email,
         password: password,
       
@@ -54,6 +55,17 @@ class Registration extends Component {
     return (
         <Fragment>    
             <View style={form}>
+
+            <View style={section}>
+                <Input
+                secureTextEntry
+                placeholder="Jhon Doe"
+                label="Name"
+                value={name}
+                onChangeText={password => this.setState({ name })}
+                />
+            </View>
+
             <View style={section}>
                 <Input
                 placeholder="user@email.com"
