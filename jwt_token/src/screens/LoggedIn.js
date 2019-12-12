@@ -21,7 +21,7 @@ export default class LoggedIn extends Component {
     };
     axios({
         method: 'GET',
-        url: 'http://192.168.1.104:3000/api/posts/',
+        url: 'https://sauhub.herokuapp.com/api/posts/',
         headers: headers,
       }).then((response) => {
         this.setState({

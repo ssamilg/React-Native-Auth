@@ -9,7 +9,7 @@ class Registration extends Component {
   constructor(props){
     super(props);
     this.state = {
-      name:'',
+      name: '',
       email: '',
       password: '',
       password_confirmation: '',
@@ -21,26 +21,27 @@ class Registration extends Component {
   }
 
   registerUser() {
-    const { email, password, password_confirmation } = this.state;
+    const { name, email, password, password_confirmation } = this.state;
 
     this.setState({ error: '', loading: true });
 
-    axios.post("http://192.168.1.104:3000/api/user/register",{
-      
-        name:name,
+      axios.post("https://sauhub.herokuapp.com/api/user/register",{ 
+        name: name,
+        surname:"turan",
         email: email,
         password: password,
-      
-    },)
-    .then((response) => {
+        password_confirmation: password_confirmation    
+      },)
+      .then((response) => {
         deviceStorage.saveItem("id_token", response.data.token);
         this.props.newJWT(response.data.token);
-    })
-    .catch((error) => {
+      })
+      .catch((error) => {
        console.log(error.response.data);
        this.onRegistrationFail(error.response.data);
-    });
+      });
   }
+
   onRegistrationFail(error) {
     this.setState({
       error: error,
@@ -49,7 +50,7 @@ class Registration extends Component {
   }
 
   render() {
-    const { email, password, password_confirmation, error, loading } = this.state;
+    const { name, email, password, password_confirmation, error, loading } = this.state;
     const { form, section, errorTextStyle } = styles;
 
     return (
@@ -58,11 +59,10 @@ class Registration extends Component {
 
             <View style={section}>
                 <Input
-                secureTextEntry
                 placeholder="Jhon Doe"
                 label="Name"
                 value={name}
-                onChangeText={password => this.setState({ name })}
+                onChangeText={name => this.setState({ name })}
                 />
             </View>
 

@@ -23,7 +23,7 @@ class Login extends Component {
     this.setState({ error: '', loading: true });
 
     // NOTE Post to HTTPS only in production
-    axios.post("http://192.168.1.104:3000/api/user/login",{
+    axios.post("https://sauhub.herokuapp.com/api/user/login",{
         email: email,
         password: password
     })
