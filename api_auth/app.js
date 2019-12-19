@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
-const dontenv = require('dotenv');
+const dotenv = require('dotenv');
 const app = express();
 
 //Import routes
@@ -9,7 +9,7 @@ const authRoute = require('./routes/auth');
 const postRoute = require('./routes/posts');
  
 //ENV config
-dontenv.config();
+dotenv.config();
 
 //DB Connection
 mongoose.connect(process.env.DB_CONNECT, 

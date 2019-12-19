@@ -11,8 +11,9 @@ const schemaRegister = joi.object({
 
     name: joi.string().min(6).required(),
     email: joi.string().min(6).required().email(),
-    password: joi.string().min(6).required()
-});
+    password: joi.string().min(6).required(),
+    password_confirmation: joi.string().min(6).required()
+})
 
 const schemaLogin = joi.object({
     email: joi.string().min(6).required().email(),
